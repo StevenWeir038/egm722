@@ -41,6 +41,7 @@ def generate_handles(labels, colors, edge='k', alpha=1):
 # adapted this question: https://stackoverflow.com/q/32333870
 # answered by SO user Siyh: https://stackoverflow.com/a/35705477
 def scale_bar(ax, length=20, location=(0.92, 0.95)):
+
     """
     Create a scale bar in a cartopy GeoAxes.
 
@@ -127,7 +128,6 @@ water_feat = ShapelyFeature(water['geometry'], # first argument is the geometry
                             facecolor='mediumblue', # set the facecolor to be mediumblue
                             linewidth=1) # set the outline width to be 1 pt
 ax.add_feature(water_feat) # add the collection of features to the map
-
 river_feat = ShapelyFeature(rivers['geometry'], # first argument is the geometry
                             ccrs.CRS(rivers.crs), # second argument is the CRS
                             edgecolor='royalblue', # set the edgecolor to be royalblue
@@ -154,7 +154,7 @@ nice_names = [name.title() for name in county_names]
 # ax.legend() takes a list of handles and a list of labels corresponding to the objects 
 # you want to add to the legend
 handles = county_handles + water_handle + river_handle + town_handle # use '+' to concatenate (combine) lists
-labels = nice_names + ['Lakes', 'Rivers', 'Towns']
+labels = nice_names + ['Lakes', 'Rivers', 'towns']
 
 leg = ax.legend(handles, labels, title='Legend', title_fontsize=12, 
                  fontsize=10, loc='upper left', frameon=True, framealpha=1)
